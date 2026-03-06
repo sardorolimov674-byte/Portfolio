@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.oulet-bg{
+    background: url('../src/assets/BodyImage.jpg');
+}
