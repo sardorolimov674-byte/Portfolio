@@ -1,16 +1,66 @@
+import { useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 
 export default function Projects() {
+  const [search, setSearch] = useState("");
+
+  const project = {
+    title: "Blog Project",
+    url: "https://blog-project-gules-two.vercel.app/"
+  };
+
+  // search filter
+  const isVisible = project.title
+    .toLowerCase()
+    .includes(search.toLowerCase());
+
   return (
-    <div>
+    <div className="p-6">
+      {/* TITLE */}
       <h1 className="text-4xl font-bold text-white">Loyihalar</h1>
-      <div className="w-[150px] h-[12px] mt-5 rounded-full bg-green-500"></div>
-      <h1 className="flex mt-[50px] text-xl font-bold">Filterlash  <CiFilter size={"40px"} /></h1>
-        <div className="border-1 flex gap-3 p-3 rounded-lg mt-4">
-          <FaSearch style={{marginTop: "6px"}} />
-          <input type="text" className="outline-none w-full" placeholder="Qidirish" />
-        </div>
+      <div className="w-[150px] h-[10px] mt-3 rounded-full bg-green-500"></div>
+
+      {/* FILTER */}
+      <h2 className="flex mt-10 text-xl font-bold text-white gap-2 items-center">
+        Filterlash <CiFilter size={28} />
+      </h2>
+
+      <div className="border flex gap-3 p-3 rounded-xl mt-4">
+        <FaSearch className="mt-[5px]" />
+        <input
+          type="text"
+          className="outline-none w-full"
+          placeholder="Qidirish..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
-  )
+
+      {isVisible && (
+        <div className="mt-10 max-w-[400px]">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
+          >
+            <div className="w-full h-[220px] overflow-hidden bg-gray-200">
+              <iframe
+                src={project.url}
+                title="preview"
+                className="w-[1000px] h-[600px] scale-[0.4] origin-top-left pointer-events-none"
+              ></iframe>
+            </div>
+
+            <div className="p-4">
+              <h2 className="text-lg font-semibold text-black">
+                {project.title}
+              </h2>
+            </div>
+          </a>
+        </div>
+      )}
+    </div>
+  );
 }
