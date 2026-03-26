@@ -5,23 +5,26 @@ import { FaSearch } from "react-icons/fa";
 export default function Projects() {
   const [search, setSearch] = useState("");
 
-  const project = {
-    title: "Blog Project",
-    url: "https://blog-project-gules-two.vercel.app/"
-  };
+  const projects = [
+    {
+      title: "Blog Project",
+      url: "https://blog-project-gules-two.vercel.app/"
+    },
+    {
+      title: "Pizza Project",
+      url: "https://pizza-project-with-react-vdjw.vercel.app/"
+    }
+  ];
 
-  // search filter
-  const isVisible = project.title
-    .toLowerCase()
-    .includes(search.toLowerCase());
+  const filteredProjects = projects.filter((project) =>
+    project.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="p-6">
-      {/* TITLE */}
       <h1 className="text-4xl font-bold text-white">Loyihalar</h1>
       <div className="w-[150px] h-[10px] mt-3 rounded-full bg-green-500"></div>
 
-      {/* FILTER */}
       <h2 className="flex mt-10 text-xl font-bold text-white gap-2 items-center">
         Filterlash <CiFilter size={28} />
       </h2>
@@ -37,30 +40,32 @@ export default function Projects() {
         />
       </div>
 
-      {isVisible && (
-        <div className="mt-10 max-w-[400px]">
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
-          >
-            <div className="w-full h-[220px] overflow-hidden bg-gray-200">
-              <iframe
-                src={project.url}
-                title="preview"
-                className="w-[1000px] h-[600px] scale-[0.4] origin-top-left pointer-events-none"
-              ></iframe>
-            </div>
+      <div className="mt-10 flex flex-wrap gap-6">
+        {filteredProjects.map((project, index) => (
+          <div key={index} className="max-w-[400px]">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
+            >
+              <div className="w-full h-[220px] overflow-hidden bg-gray-200">
+                <iframe
+                  src={project.url}
+                  title="preview"
+                  className="w-[1000px] h-[600px] scale-[0.4] origin-top-left pointer-events-none"
+                ></iframe>
+              </div>
 
-            <div className="p-4">
-              <h2 className="text-lg font-semibold text-black">
-                {project.title}
-              </h2>
-            </div>
-          </a>
-        </div>
-      )}
+              <div className="p-4">
+                <h2 className="text-lg font-semibold text-black">
+                  {project.title}
+                </h2>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
