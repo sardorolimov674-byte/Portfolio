@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 
-const linkClass = ({ isActive }: any) =>
-  `relative pb-1 transition
-   ${isActive 
-     ? "text-green-500 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-green-500"
-     : "text-gray-300 hover:text-green-500"
-   }`;
+const linkClass = ({ isActive }: { isActive: boolean }) =>
+  `relative pb-1 transition ${
+    isActive
+      ? "text-green-500 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-green-500"
+      : "text-gray-300 hover:text-green-500"
+}`;
 
 export default function Header() {
   return (
