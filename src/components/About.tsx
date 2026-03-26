@@ -1,5 +1,5 @@
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import html from "../assets/html.svg";
 import css from "../assets/css.svg";
