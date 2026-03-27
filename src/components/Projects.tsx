@@ -42,18 +42,18 @@ export default function Projects() {
 
       <div className="mt-10 flex flex-wrap gap-6">
         {filteredProjects.map((project, index) => (
-          <div key={index} className="max-w-[500px]">
+          <div key={index} className="max-w-[550px]">
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
               className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
             >
-              <div className="w-full h-[220px] overflow-hidden bg-gray-200">
+              <div className="w-full h-[270px] overflow-hidden bg-gray-200">
                 <iframe
                   src={project.url}
                   title="preview"
-                  className="w-[1000px] h-[600px] scale-[0.4] origin-top-left pointer-events-none"
+                  className="w-[1370px] h-[675px] scale-[0.4] origin-top-left pointer-events-none"
                 ></iframe>
               </div>
 
