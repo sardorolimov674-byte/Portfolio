@@ -42,7 +42,7 @@ export default function Projects() {
 
       <div className="mt-10 flex flex-wrap gap-6">
         {filteredProjects.map((project, index) => (
-          <div key={index} className="max-w-[400px]">
+          <div key={index} className="max-w-[500px]">
             <a
               href={project.url}
               target="_blank"
