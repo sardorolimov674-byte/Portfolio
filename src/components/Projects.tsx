@@ -42,7 +42,7 @@ export default function Projects() {
 
       <div className="mt-10 flex flex-wrap gap-6">
         {filteredProjects.map((project, index) => (
-          <div key={index} className="max-w-[530px]">
+          <div key={index} className="max-w-[500px]">
             <a
               href={project.url}
               target="_blank"
@@ -53,7 +53,7 @@ export default function Projects() {
                 <iframe
                   src={project.url}
                   title="preview"
-                  className="w-[1370px] h-[675px] scale-[0.4] origin-top-left pointer-events-none"
+                  className="w-[1270px] h-[675px] scale-[0.4] origin-top-left pointer-events-none"
                 ></iframe>
               </div>
 
