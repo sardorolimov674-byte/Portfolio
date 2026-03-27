@@ -12,7 +12,7 @@ export default function Projects() {
     },
     {
       title: "Pizza Project",
-      url: "https://pizza-project-with-react-vdjw.vercel.app/"
+      url: "https://pizza-project-with-react-rk2h.vercel.app/"
     }
   ];
 
